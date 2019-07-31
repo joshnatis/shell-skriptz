@@ -14,12 +14,25 @@ The last step (once you have the scripts in your directory, of course), is to ex
 ## Documentation
 
 ### hmm
-* *(accepts no arguments)*
+* *(accepts: no arguments)*
 
 * This one simply clears the screen and then calls **ls** -- it's essentially a fidgeting command that I can call while I'm thinking about what to do next (hence the name). **hmm** is also shorter to write than **clear**, which saves me a few milliseconds :P. (*Note: ^L, aka CTRL L, clears the terminal screen as well, and can be used as an alternative to* **clear**)
 
 ### newcpp / newjava
-* *(accepts name of file, optionally with extension)*
+* *(accepts: name of file, optionally with extension)*
   * *i.e* **newcpp** *helloworld*, **newcpp** *helloworld.cpp*, **newjava** *eww.java*, *etc.*
   
 * These scripts help bypass boilerplate code that wastes time and accelarates your impending carpal tunnel. Invoking the command opens your default program to open *.cpp/.java* files with a new file, already named and containing a few lines of code. The script checks whether you've included the extension for the file in your argument, so there's no need to write anything besides your desired file name. (*Compatability note: these scripts use the* **open** *command, which is unique to MacOS (as far as I know) -- it just uses the default program to open a file based on its extension. For other Unix systems, changing* **open** *to your desired text editor, i.e* **nano**, *should do the trick*).
+
+### mp3
+* *(accepts: YouTube url)*
+* *(requires: [youtube-dl](https://github.com/ytdl-org/youtube-dl))*
+
+* I cannot recommend **youtube-dl** enough, both as an alternative to suspicious YouTube2MP3 websites, and to streaming services such as Spotify. Calling **mp3** *\<url>* downloads the requested file to your current directory. If you're using iTunes or a similar music player, you have to first open the file in the player manually in order for it to show up in your music library. For me, this process often looks like this: 
+ 1. Call **mp3** *\<url>* in my home directory (for as many songs as necessary)
+ 2. **open \*.mp3** (at this point the songs will successfully be in iTunes)
+ 3. **mv \*.mp3 Downloads** (or to wherever you store your music files)
+ 4. Next time you play a song you moved, iTunes may or may not give you an error message claiming it cannot find the file (since you moved it to a new directory). Simply follow the prompts it gives you, locate the erroneous file in Finder, and the rest will be found automatically. This is, of course, a horrible solution, but the important thing is that you have the file readily accessible on your computer.
+ 5. Optionally, you can add points 2. and 3. to the script, but I prefer not to have iTunes open every time I download a file.
+ 
+ *Suggestion: If you only need a small snippit of some audio, rather than the entire file, download [Audio Hijack](https://rogueamoeba.com/audiohijack/), a great program with an indefinite free trial that allows you to record the audio directly from your computer.*

@@ -4,7 +4,8 @@ if [ $# -eq 0 ]; #if no parameters, use all .mp4 files in directory
 then
 	printf "file '%s'\n" *.mp4 > videos.txt
 else
-	printf "file '%s'\n" $@ > videos.txt
+	printf "file '%s'\n" $@ > videos.txt 
+	#$@ cycles through all arguments
 fi
 	
 ffmpeg -f concat -i videos.txt -c copy final.mp4

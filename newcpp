@@ -1,0 +1,29 @@
+#!/bin/bash
+
+filename=$1
+
+if [ -z "$1" ]; then
+	tput bold
+	echo -n "error: "
+	tput sgr0
+	echo "invalid name"
+	exit 1;
+fi
+
+if [[ $filename == *".cpp" ]]; then
+	touch $filename
+else
+	filename=$1.cpp
+	touch $filename
+fi
+
+echo "#include <iostream>" >> $filename 
+echo "using namespace std;" >> $filename
+echo >> $filename
+echo "int main()" >> $filename
+echo "{" >> $filename
+echo >> $filename
+echo $'\t'"return 0;" >> $filename
+echo "}" >> $filename
+
+open $filename

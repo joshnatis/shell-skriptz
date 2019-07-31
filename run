@@ -1,0 +1,12 @@
+#!/bin/bash
+
+filename=$1
+
+if g++ $filename; then
+	echo
+	echo
+	./a.out
+	echo
+	echo
+fi
+

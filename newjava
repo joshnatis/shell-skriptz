@@ -1,0 +1,28 @@
+#!/bin/bash
+
+filename=$1
+
+if [ -z "$1" ]; then
+	tput bold
+	echo -n "error: "
+	tput sgr0
+	echo "invalid name"
+	exit 1;
+fi
+
+if [[ $filename == *".java" ]]; then
+	touch $filename
+else
+	filename=$1.java
+	touch $filename
+fi
+
+echo public class ${filename%.*} >> $filename
+echo { >> $filename
+echo $'\t'"public static void main(String[] args)" >> $filename
+echo $'\t'"{" >> $filename
+echo $'\n' >> $filename
+echo $'\t'"}" >> $filename
+echo } >> $filename
+
+open $filename

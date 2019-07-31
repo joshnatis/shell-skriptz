@@ -1,0 +1,5 @@
+#!/bin/bash
+
+printf "file '%s'\n" *.mp4  > videos.txt
+ffmpeg -f concat -i videos.txt -c copy final.mp4
+rm videos.txt

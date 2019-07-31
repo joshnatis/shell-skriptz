@@ -24,6 +24,14 @@ The last step (once you have the scripts in your directory, of course), is to ex
   
 * These scripts help bypass boilerplate code that wastes time and accelarates your impending carpal tunnel. Invoking the command opens your default program to open *.cpp/.java* files with a new file, already named and containing a few lines of code. The script checks whether you've included the extension for the file in your argument, so there's no need to write anything besides your desired file name. (*Compatability note: these scripts use the* **open** *command, which is unique to MacOS (as far as I know) -- it just uses the default program to open a file based on its extension. For other Unix systems, changing* **open** *to your desired text editor, i.e* **nano**, *should do the trick*).
 
+### run
+* *(accepts: name of .cpp source code file, including extension)*
+  * *i.e* **run** *hello.cpp*
+* *(requires: [gcc/g++](https://gcc.gnu.org/))*
+
+
+* Short and sweet -- this script compiles a *.cpp* file with **g++** (creating *a.out*) and runs the resulting object file.
+
 ### mp3
 * *(accepts: YouTube url)*
 * *(requires: [youtube-dl](https://github.com/ytdl-org/youtube-dl))*
@@ -35,4 +43,4 @@ The last step (once you have the scripts in your directory, of course), is to ex
  4. Next time you play a song you moved, iTunes may or may not give you an error message claiming it cannot find the file (since you moved it to a new directory). Simply follow the prompts it gives you, locate the erroneous file in Finder, and the rest will be found automatically. This is, of course, a horrible solution, but the important thing is that you have the file readily accessible on your computer.
  5. Optionally, you can add points 2. and 3. to the script, but I prefer not to have iTunes open every time I download a file.
  
- *Suggestion: If you only need a small snippit of some audio, rather than the entire file, download [Audio Hijack](https://rogueamoeba.com/audiohijack/), a great program with an indefinite free trial that allows you to record the audio directly from your computer.*
+ *Suggestion: If you only need a snippit of some audio, rather than the entire file, download [Audio Hijack](https://rogueamoeba.com/audiohijack/), a great program with an indefinite free trial that allows you to record the audio directly from your computer.*

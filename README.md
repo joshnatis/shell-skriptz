@@ -44,3 +44,11 @@ The last step (once you have the scripts in your directory, of course), is to ex
  5. Optionally, you can add points 2. and 3. to the script, but I prefer not to have iTunes open every time I download a file.
  
  *Suggestion: If you only need a snippit of some audio, rather than the entire file, download [Audio Hijack](https://rogueamoeba.com/audiohijack/), a great program with an indefinite free trial that allows you to record the audio directly from your computer.*
+
+### record
+* *(accepts: optional parameter of any word/digit of your choosing)*
+* *(requires: [ffmpeg](https://github.com/FFmpeg/FFmpeg))*
+
+* Another indispensible tool in anyone's toolkit -- **ffmpeg**. If you've ever tried to record your screen on MacOS, then you've probably experieced the perils of QuickTime Player and *.mov*. Though I appreciate Apple providing a native screenrecorder, QuickTime is bulky, only works with files in *.mov* format (which happen to be huge and don't work well with YouTube), and is relatively featureless. Also, c'mon, having that QuickTime icon in your Dock while recording makes you look like an amateur! Lol. 
+
+* With **record**, you can call the command whenever you're ready to start, and enter *q* or *^C* to finish recording. The resulting file will be titled *out.mov*, or if you provided an argument, *out\<argument>.mov*. You can also record in *.mp4* or in some other formats, but when I tried *.mp4* my audio was constantly cutting out. (*Compatability note: the arguments within this script strongly depend on your OS and even your specific setup -- make sure to visit [this](https://trac.ffmpeg.org/wiki/Capture/Desktop) site for info on how to probably configure for your system.*)

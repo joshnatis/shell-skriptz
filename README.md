@@ -45,6 +45,14 @@ The last step (once you have the scripts in your directory, of course), is to ex
  5. Optionally, you can add points 2. and 3. to the script, but I prefer not to have iTunes open every time I download a file.
  
  *Suggestion: If you only need a snippit of some audio, rather than the entire file, download [Audio Hijack](https://rogueamoeba.com/audiohijack/), a great program with an indefinite free trial that allows you to record the audio directly from your computer.*
+ 
+ ### mp3crop
+ * *(accepts: space separated start-time, end-time, YouTube url)*
+   * *i.e* **mp3crop** *1:00 2:08 https://<i></i>youtu.<i></i>be/DljBMflGdek*
+
+* *(requires: [youtube-dl](https://github.com/ytdl-org/youtube-dl))*
+
+* This one is just like **mp3**, but with the added functionality of cropping a desired section of a YouTube video. The script would probably be better if it could be integrated into **mp3** and called like this: **mp3 --crop** *start-time end-time \<url>*, if I have enough time and competency I'll implement that (or you can help me!).
 
 ### record
 * *(accepts: optional parameter of any word/digit of your choosing)*

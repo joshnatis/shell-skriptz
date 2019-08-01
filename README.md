@@ -22,7 +22,7 @@ The last step (once you have the scripts in your directory, of course), is to ex
 * *(accepts: name of file, optionally with extension)*
   * *i.e* **newcpp** *helloworld*, **newcpp** *helloworld.cpp*, **newjava** *eww.java*, *etc.*
   
-* These scripts help bypass boilerplate code that wastes time and accelarates your impending carpal tunnel. Invoking the command opens your default program to open *.cpp/.java* files with a new file, already named and containing a few lines of code. The script checks whether you've included the extension for the file in your argument, so there's no need to write anything besides your desired file name. 
+* These scripts help bypass boilerplate code that wastes time and accelarates your impending carpal tunnel. Invoking the command opens your default editor/IDE with a new *.cpp/.java* file, already named and containing a few lines of code. The script checks whether you've included the extension for the file in your argument, so there's no need to write anything besides your desired file name. 
 * (*Compatability note: these scripts use the* **open** *command, which is unique to MacOS (as far as I know) -- it just uses the default program to open a file based on its extension. For other Unix systems, changing* **open** *to your desired text editor, i.e* **nano**, *should do the trick*).
 
 ### run

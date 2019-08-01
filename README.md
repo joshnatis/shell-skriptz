@@ -1,4 +1,4 @@
-# skriptz
+# shell-skriptz
 ## What is a shell script?
 > "The real power of the computer is its ability to do the work for you. To get it to do that, we use the power of the shell to automate things. We write shell scripts." - [random site](http://linuxcommand.org/lc3_writing_shell_scripts.php)
 

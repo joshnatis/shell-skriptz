@@ -55,12 +55,13 @@ The last step (once you have the scripts in your directory, of course), is to ex
 * This one is just like **mp3**, but with the added functionality of cropping a desired section of a YouTube video. The script would probably be better if it could be integrated into **mp3** and called like this: **mp3 --crop** *start-time end-time \<url>*, if I have enough time and competency I'll implement that (or you can help me!).
 
 ### record
-* *(accepts: optional parameter of any word/digit of your choosing)*
+* *(accepts: optional parameters of --mov, specifying the file type to be .mov, and/or a custom name of your choosing)*
+  * *e.g.* **record** (yields *OUT.mp4*), **record** *--mov* (yields *OUT.mov*), **record** *myvid* (yields *myvid.mp4*), etc. 
 * *(requires: [ffmpeg](https://github.com/FFmpeg/FFmpeg))*
 
 * Another indispensible tool in anyone's toolkit -- **ffmpeg**. If you've ever tried to record your screen on MacOS, then you've probably experieced the perils of QuickTime Player and *.mov*. Though I appreciate Apple providing a native screenrecorder, QuickTime is bulky, only works with files in *.mov* format (which happen to be huge and don't work well with YouTube), and is relatively featureless. Also, c'mon, having that QuickTime icon in your Dock while recording makes you look like an amateur! Lol. 
 
-* With **record**, you can call the command whenever you're ready to start, and enter *q* or *^C* to finish recording. The resulting file will be titled *out.mov*, or if you provided an argument, *out\<argument>.mov*. You can also record in *.mp4* or in some other formats, but when I tried *.mp4* my audio was constantly cutting out. In order to convert from *.mov* to *.mp4* when finished, invoke this command: **ffmpeg -i** input.mov output.mp4.
+* With **record**, you can call the command whenever you're ready to start, and enter *q* or *^C* to finish recording. The resulting file will be titled *OUT.mp4*, or if you provided some arguments, something similar to *OUT.mov*, *\<argument>.mp4*, or *\<argument>.mov*. If you've accidentally messed up the video format, you can convert from *.mov* to *.mp4* (or vice versa) when finished by invoking this command: **ffmpeg -i** input.mov output.mp4.
 * (*Compatability note: the arguments within this script strongly depend on your OS and even your specific setup -- make sure to visit [this](https://trac.ffmpeg.org/wiki/Capture/Desktop) site for info on how to probably configure for your system.*)
 
 ### concatv

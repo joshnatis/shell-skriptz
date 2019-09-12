@@ -18,11 +18,14 @@ The last step (once you have the scripts in your directory, of course), is to ex
 * This one simply clears the screen and then calls **ls** -- it's essentially a fidgeting command that I can call while I'm thinking about what to do next (hence the name). **hmm** is also shorter to write than **clear**, which saves me a few milliseconds :P. (*Note: ^L, aka CTRL L, clears the terminal screen as well, and can be used as an alternative to* **clear**)
 
 ### newcpp / newjava
-* *(accepts: name of file, optionally with extension)*
-  * *e.g.* **newcpp** *helloworld*, **newcpp** *helloworld.cpp*, **newjava** *eww.java*, *etc.*
+<pre>newcpp
+newcpp hello
+newcpp hello.cpp
+newjava hello
+newjava hello.java</pre>
   
 * These scripts help bypass boilerplate code that wastes time and accelarates your impending carpal tunnel. Invoking the command opens your default editor/IDE with a new *.cpp/.java* file, already named and containing a few lines of code. The script checks whether you've included the extension for the file in your argument, so there's no need to write anything besides your desired file name. 
-* (*Compatability note: these scripts use the* **open** *command, which is unique to MacOS (as far as I know) -- it just uses the default program to open a file based on its extension. For other Unix systems, changing* **open** *to your desired text editor, e.g.* **nano**, *should do the trick*).
+* (*Compatability note: these scripts use the* **open** *command, which is unique to MacOS -- it just uses the default program to open a file based on its extension. The Linux alternative to **open** is **xdg-open**. For other Unix systems, changing* **open** *to your desired text editor, e.g.* **nano**, *should do the trick.*). 
 
 ### run
 * *(accepts: name of .cpp source code file, including extension)*

@@ -28,25 +28,26 @@ newjava hello.java</pre>
 * (*Compatability note: these scripts use the* **open** *command, which is unique to MacOS -- it just uses the default program to open a file based on its extension. The Linux alternative to **open** is **xdg-open**. For other Unix systems, changing* **open** *to your desired text editor, e.g.* **nano**, *should do the trick.*). 
 
 ### run
-* *(accepts: name of .cpp source code file, including extension)*
-  * *e.g.* **run** *hello.cpp*
+<pre>run hello.cpp</pre>
 * *(requires: [gcc/g++](https://gcc.gnu.org/))*
 
 
-* Short and sweet -- this script compiles a *.cpp* file with **g++** (creating *a.out*) and runs the resulting object file.
+* Short and sweet -- this script compiles a *.cpp* file with **g++** (creating *a.out*) and runs the resulting out file.
 
 ### mp3
-* *(accepts: YouTube url)*
+<pre>mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ</pre>
 * *(requires: [youtube-dl](https://github.com/ytdl-org/youtube-dl))*
 
 * I cannot recommend **youtube-dl** enough, both as an alternative to suspicious YouTube2MP3 websites, and to streaming services such as Spotify. Calling **mp3** *\<url>* downloads the requested file to your current directory. If you're using iTunes or a similar music player, you have to first open the file in the player manually in order for it to show up in your music library. For me, this process often looks like this: 
  1. Call **mp3** *\<url>* in my home directory (for as many songs as necessary)
  2. **open \*.mp3** (at this point the songs will successfully be in iTunes)
- 3. **mv \*.mp3 Downloads** (or to wherever you store your music files)
+ 3. **mv \*.mp3 ~/Downloads** (or to wherever you store your music files)
  4. Next time you play a song you moved, iTunes may or may not give you an error message claiming it cannot find the file (since you moved it to a new directory). Simply follow the prompts it gives you, locate the erroneous file in Finder, and the rest will be found automatically. This is, of course, a horrible solution, but the important thing is that you have the file readily accessible on your computer.
  5. Optionally, you can add points 2. and 3. to the script, but I prefer not to have iTunes open every time I download a file.
  
  *Suggestion: If you only need a snippit of some audio, rather than the entire file, download [Audio Hijack](https://rogueamoeba.com/audiohijack/), a great program with an indefinite free trial that allows you to record the audio directly from your computer.*
+ 
+ *Suggestion #2: Play your music in style with my command-line music player, [teapot](https://github.com/joshnatis/teapot) :P*
  
  ### mp3crop
  * *(accepts: space separated start-time, end-time, YouTube url)*

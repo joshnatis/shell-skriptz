@@ -50,26 +50,29 @@ newjava hello.java</pre>
  *Suggestion #2: Play your music in style with my command-line music player, [teapot](https://github.com/joshnatis/teapot) :P*
  
  ### mp3crop
- * *(accepts: space separated start-time, end-time, YouTube url)*
-   * *e.g.* **mp3crop** *1:00 2:08 https://<i></i>youtu.<i></i>be/DljBMflGdek*
+ <pre>mp3crop 1:00 2:08 https://youtu.be/DljBMflGdek</pre>
 
 * *(requires: [youtube-dl](https://github.com/ytdl-org/youtube-dl))*
 
 * This one is just like **mp3**, but with the added functionality of cropping a desired section of a YouTube video. The script would probably be better if it could be integrated into **mp3** and called like this: **mp3 --crop** *start-time end-time \<url>*, if I have enough time and competency I'll implement that (or you can help me!).
 
 ### record
-* *(accepts: optional parameters of --mov, specifying the file type to be .mov, and/or a custom name of your choosing)*
-  * *e.g.* **record** (yields *OUT.mp4*), **record** *--mov* (yields *OUT.mov*), **record** *myvid* (yields *myvid.mp4*), etc. 
+<pre>record                     #yields OUT.mp4
+record --mov               #yields OUT.mov
+record name                #yields name.mp4 
+record --mov name          #yields name.mov (order doesn't matter)
+</pre>
 * *(requires: [ffmpeg](https://github.com/FFmpeg/FFmpeg))*
 
 * Another indispensible tool in anyone's toolkit -- **ffmpeg**. If you've ever tried to record your screen on MacOS, then you've probably experieced the perils of QuickTime Player and *.mov*. Though I appreciate Apple providing a native screenrecorder, QuickTime is bulky, only works with files in *.mov* format (which happen to be huge and don't work well with YouTube), and is relatively featureless. Also, c'mon, having that QuickTime icon in your Dock while recording makes you look like an amateur! Lol. 
 
-* With **record**, you can call the command whenever you're ready to start, and enter *q* or *^C* to finish recording. The resulting file will be titled *OUT.mp4*, or if you provided some arguments, something similar to *OUT.mov*, *\<argument>.mp4*, or *\<argument>.mov*. If you've accidentally messed up the video format, you can convert from *.mov* to *.mp4* (or vice versa) when finished by invoking this command: **ffmpeg -i** input.mov output.mp4.
+* With **record**, you can call the command whenever you're ready to start, and enter *q* or *^C* to finish recording. The resulting file will be titled *OUT.mp4*, or something similar if you provided some arguments. If you've accidentally messed up the video format, you can convert from *.mov* to *.mp4* (or vice versa) when finished by invoking this command: **ffmpeg -i** input.mov output.mp4.
 * (*Compatability note: the arguments within this script strongly depend on your OS and even your specific setup -- make sure to visit [this](https://trac.ffmpeg.org/wiki/Capture/Desktop) site for info on how to probably configure for your system.*)
 
 ### concatv
-* *(accepts: either no arguments, or space separated filenames of every .mp4 file you're concatenating)*
-  * *e.g.* **concatv** (which uses all *.mp4* files in directory as input), **concatv** *vid1.mp4 vid2.mp4 vid3.mp4*
+<pre>concatv                                   #concatenates all .mp4 files in directory
+concatv vid1.mp4 vid2.mp4 vid3.mp4        #concatenates .mp4 files listed as arguments
+</pre>
 * *(requires: [ffmpeg](https://github.com/FFmpeg/FFmpeg))*
 
 * If you ever have multiple video files which you'd like to stitch together into one video, this script is the one to use. Invoking it will result in a file called *final.mp4*. Be ware that the order in which you list your arguments matters (they will be concatenated in that order). *Note: only meant to work for .mp4 files, but can very easily be changed to support any filetype supported by **ffmpeg**. Note 2: Apparently the video files are required to be in the same aspect ratio and size in order for this to work. In order to not run into issues with this, just record your full screen or assure that the videos are the same size. Hopefully I can find a fix for this.* 

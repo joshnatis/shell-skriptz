@@ -18,8 +18,7 @@ The last step (once you have the scripts in your directory, of course), is to ex
 * This one simply clears the screen and then calls **ls** -- it's essentially a fidgeting command that I can call while I'm thinking about what to do next (hence the name). **hmm** is also shorter to write than **clear**, which saves me a few milliseconds :P. (*Note: ^L, aka CTRL L, clears the terminal screen as well, and can be used as an alternative to* **clear**)
 
 ### newcpp / newjava
-<pre>newcpp
-newcpp hello
+<pre>newcpp hello
 newcpp hello.cpp
 newjava hello
 newjava hello.java</pre>

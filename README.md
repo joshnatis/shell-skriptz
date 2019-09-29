@@ -95,8 +95,12 @@ concatv vid1.mp4 vid2.mp4 vid3.mp4        #concatenates .mp4 files listed as arg
 * This script is actually written in Python, but since you can also do `chmod +x` on Python scripts (and even drop the .py), I figured it was still relavant to include here. To use, simple call `wiki` and then enter the index of the article you want to read (or -1 for 10 new articles) -- it'll be opened in your default web browser. The articles are fetched from [this Wikipedia API](https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&rnlimit=10&format=json).
 * (*Compatability note: this script uses the `open` command to open the article in your default browser. If you're not on MacOS you can change that to `xdg-open` or to the name of your desired browser*)
 
+![Screenshot](images/wikis.png)
+
 ### intro
 <pre>intro     #Does colorful stuffs</pre>
 * *(requires: [cowsay](https://en.wikipedia.org/wiki/Cowsay) and [lolcat](https://github.com/busyloop/lolcat))*
 
 * This one's just for fun; it prints out some colorful things as well as a random ASCII art character using `cowsay`.
+
+![Screenshot](images/welcome.png)

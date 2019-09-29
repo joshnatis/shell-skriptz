@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+
+import json
+import urllib
+import os
+
+def get_random_wiki_articles(num):
+	data = urllib.urlopen("https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&rnlimit=" + str(num) + "&format=json").read()
+	parsed = json.loads(data)
+	random_articles = parsed["query"]["random"]
+
+	return random_articles
+
+def serve_to_user():
+	random_articles = get_random_wiki_articles(10)
+	IDs = [] #used to store IDs of wiki articles, later used to open URL
+
+	for index, article in enumerate(random_articles):
+		print(str(index) + ": " + article["title"].encode("utf-8"))
+		IDs.append(str(article["id"]))
+
+	try:
+		index = int(input("\nWhich article would you like to read? "))
+	except:
+		print("Invalid input.")
+		exit() #if invalid input, simply exit the program
+
+	if(index == -1): #user selected none of the articles, serve X new ones
+		print('')
+		serve_to_user()
+
+
+	os.system("open" + " https://en.wikipedia.org/wiki?curid=" + IDs[index]) 
+	exit()
+
+
+serve_to_user()
+

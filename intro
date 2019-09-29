@@ -1,0 +1,46 @@
+#!/bin/bash
+
+function new_tab() {
+	osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down'
+}
+
+function neon_hi() {
+	tput bold
+	tput setaf 0
+	echo " __      __       .__                               ";
+	echo "/  \    /  \ ____ |  |   ____  ____   _____   ____  ";
+	echo "\   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \ ";
+	echo " \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/ ";
+	echo "  \__/\  /  \___  >____/\___  >____/|__|_|  /\___  >";
+	echo "       \/       \/          \/            \/     \/ ";
+	echo "                                                    ";
+	tput sgr0
+}
+
+function cow_setup() {
+	COWDIR="/usr/local/Cellar/cowsay/3.04/share/cows"
+	COWLIST=( /usr/local/share/cows/*.cow )
+	NUM_COWS=$(ls -l $COWDIR/*.cow | wc -l)
+}
+
+function cow_hi() {
+	COWINDEX=$(($RANDOM % $NUM_COWS))
+	COWTYPE=${COWLIST[$COWINDEX]}
+	cowsay -f $COWTYPE "HELLO FRIEND! ENJOY THE VIDEO <3" | lolcat -p 1 -a -s 80
+	#cowsay -f $COWTYPE "HELLO FRIEND! ENJOY THE VIDEO <3" | lolcat -p 1
+	echo
+}
+
+cow_setup
+#cow_hi
+
+count=0
+while [ $count -lt 2 ]; do
+	#clear
+	neon_hi | lolcat -p 1 -a -s 200 -i
+	tput bold; echo; date | lolcat -a
+	cow_hi
+	sleep 2
+	
+	let "count++"
+done

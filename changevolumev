@@ -1,0 +1,7 @@
+#!/bin/bash
+
+read -p "Original video: " original
+read -p "Decibals to raise volume by: " db
+read -p "Output to file named: " output
+
+ffmpeg -i "$original" -vcodec copy -af "volume=$dbdB" "$output"

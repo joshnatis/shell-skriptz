@@ -1,0 +1,7 @@
+#!/bin/bash
+
+read -p "Original video: " original
+read -p "Seconds to delay audio by: " secs
+read -p "Output to filed named: " final
+
+ffmpeg -i "$original" -itsoffset "$secs" -i "$original" -map 0:v -map 1:a -c copy "$final"

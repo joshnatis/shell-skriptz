@@ -34,7 +34,6 @@ newjava hello.java</pre>
 <pre>run hello.cpp</pre>
 * *(requires: [gcc/g++](https://gcc.gnu.org/))*
 
-
 * Short and sweet -- this script compiles a *.cpp* file with `g++` (creating *a.out*) and runs the resulting out file.
 
 ### mp3
@@ -112,14 +111,6 @@ concatv vid1.mp4 vid2.mp4 vid3.mp4        #concatenates .mp4 files listed as arg
 
 * If your audio is either too quiet or too loud, you can adjust that with this script. Again, if you're unsure of exactly how much to raise/decrease the volume by, incrementally call this script with small changes until satisfied.
 
-### screenshot
-<pre>screenshot       #Saves screenshot in file named output.jpg</pre>
-* *(requires: [ffmpeg](https://github.com/FFmpeg/FFmpeg))*
-
-* If you don't have any utility to take screenshots for you, this is a cheap alternative (cheap as in lacking in dependencies, not as in $$$, cause this is obviously free lols). *"What if I don't want the terminal window to be in my screenshot?"* you say... well this takes a second to execute so you have just enough time to somehow hide the window (or you can bind the script to execute when you hit a certain key, which gives me a good idea...).
-
-* *Note: make sure to change the screen size to the dimensions of your screen*
-
 ## RMarkdown-Related Scripts
 
 ### note
@@ -131,3 +122,13 @@ concatv vid1.mp4 vid2.mp4 vid3.mp4        #concatenates .mp4 files listed as arg
 ### backlight
 
 ### light
+
+### usbguide
+
+### screenshot
+<pre>screenshot       #Saves screenshot in file named output.jpg</pre>
+* *(requires: [ffmpeg](https://github.com/FFmpeg/FFmpeg))*
+
+* If you don't have any utility to take screenshots for you, this is a cheap alternative (cheap as in lacking in dependencies, not as in $$$, cause this is obviously free lols). *"What if I don't want the terminal window to be in my screenshot?"* you say... well this takes a second to execute so you have just enough time to somehow hide the window (or you can bind the script to execute when you hit a certain key, which gives me a good idea...).
+
+* *Note: make sure to change the screen size to the dimensions of your screen*

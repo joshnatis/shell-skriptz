@@ -1,0 +1,21 @@
+#!/bin/bash
+
+path="/sys/class/backlight/intel_backlight/brightness"
+CURRENT=$(cat /sys/class/backlight/intel_backlight/brightness)
+
+#su root
+
+if [ "$1" = "up" ]; then
+	echo $(($CURRENT+80)) > "$path"
+elif [ "$1" = "down" ]; then
+	echo $(($CURRENT-80)) > "$path"
+elif [ "$1" = "off" ]; then
+	echo "0" > "$path"
+elif [ "$1" = "on" ]; then
+	echo "852" > "$path"
+elif [ "$1" = "dim" ]; then
+	echo "2" > "$path"
+else
+	echo "$1" > "$path"
+fi
+

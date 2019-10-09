@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cd ~/Documents/notes || exit 1
+
+filename="$1.rmd"
+
+if [ -z "$1" ]; then
+	filename="default.rmd"
+fi
+
+if [ ! -f "$filename" ]; then
+	touch "$filename"
+
+	echo "---" >> "$filename"
+	echo "title: " >> "$filename"
+	echo "author: Josh" >> "$filename"
+	echo "date: $(date +%x)" >> "$filename"
+	echo "output: pdf_document" >> "$filename"
+	echo "---" >> "$filename"
+fi
+
+vim "$filename"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "========"
+echo "* do lsblk -f or sudo fdisk -l or cat /proc/partitions"
+echo "* mkdir /mnt/usb where you'll mount the usb"
+echo "* mount sdb1(or whatever) /mnt/usb"
+echo
+echo "* writing is weird, try to just do sudo before any commands besides reading"
+echo
+echo "* to unmount, just do umount /mnt/usb"
+echo "* if it's busy then do fuser /mnt/usb to see process, and kill it with fuser -k /mnt/usb"
+echo "========="

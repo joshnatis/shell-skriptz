@@ -113,17 +113,58 @@ concatv vid1.mp4 vid2.mp4 vid3.mp4        #concatenates .mp4 files listed as arg
 
 ## RMarkdown-Related Scripts
 
+**Preface**: RMarkdown is awesome. If you're taking notes in a WYSIWYG editor, stop it! RMarkdown is a markup language, meaning you use it to specify what you want a document to look like/contain (yep, just like HTML... except HTML sucks). You're also free to use arbitrary bits of LaTeX or HTML anywhere in your note, and with **pandoc** it easily outputs to PDF or HTML. Did I mention the notes also look beautiful? Oh, and you can run code within the notes... nice. I'm not gonna be able to give a comprehensive tutorial on setting up, so check [this](https://www.youtube.com/watch?v=4J5a0JWIF-0) out as a start.
+
 ### note
+
+<pre>note coolname        #Creates a file named coolname.rmd in your notes directory with some prefilled information</pre>
+
+* This just creates a new note, prefills some meta-data (such as the title, author name, date, and output file format). If you use this script change the following things: (1) the author name, (2) the directory your notes are created in. You might also want to change `vim` to your preferred editor (or to `$EDITOR`).
 
 ### render
 
+<pre>render mynote.rmd        #Compiles .rmd file to specified (in meta-data) output file format</pre>
+
+* Usually when people use RMarkdown they write it and compile it in RStudio. If you want to use something else, this is the command you can use to compile your note.
+* *Note: If you want a keyboard shortcut for this in **vim**, I got u. Just add the following to your `.vimrc` file, or wherever you keep your config:
+`autocmd FileType rmd map ,2 :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>`
+
+* Now you can simply press `,2` and the .rmd file will compile (don't forget to save your changes beforehand).
+
 ## Utilities
 
+**Preface**: Stuff is hard to set up sometimes. After installing Arch Linux a bunch of things were not working for me, so I had to cobble together imperfect but functional solutions (some are better than others, this backlight script is something from another planet).
+
 ### backlight
+* This is referring to the computer screen brightness, by the way.
+<pre>
+su root           #This script requires you to be root in order to execute it :D
+backlight up      #Raises the backlight by 80 (out of 852, so that's roughly 10 executions to go from off to on)
+backlight down    #Lowers the backlight by 80
+backlight on      #Maximizes brightness to 100%
+backlight off     #Turns off screen completely (not recommended, as you'll have to turn it back on by typing without seeing anything lol)
+backlight dim     # Lowers backlight to the dimmest possible brightness (but still visible).
+</pre>
+
+* For some reason I couldn't bind my function keys to actually change my brightness. Maybe you're in the same situation. This is a workaround.
+)* 
+*Note*: This will probably work in a similar way for you, but you might have to change `intel_backlight` to `acpi_video`, as well as change the numbers. Read [this](https://wiki.archlinux.org/index.php/Backlight) guide for more information.
 
 ### light
+* This is referring to the keyboard backlight
+<pre>
+#You'll need to have sudoers access to use this
+light 2   #I believe this is the maximum brightness value
+light 1   #A nice medium
+light 0   #No keyboard backlight
+</pre>
+
+* Again, if you can't seem to figure out any better solution you can use this. For more information, read [this](https://wiki.archlinux.org/index.php/Keyboard_backlight).
 
 ### usbguide
+<pre> usbguide    #Prints out a nice guide for mounting and unmounting a USB using the terminal</pre>
+
+* Ah, yes, another missing functionality. This script doesn't actually mount the USB for you, but rather prints out a little guide to help you do it by hand.
 
 ### screenshot
 <pre>screenshot       #Saves screenshot in file named output.jpg</pre>

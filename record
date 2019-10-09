@@ -19,3 +19,6 @@ echo "Recording into $NAME.$FILETYPE"
 
 ffmpeg -f avfoundation -i "1:0" -pix_fmt yuv420p -r 25 $NAME.$FILETYPE
 
+# USE THIS IF YOU'RE ON LINUX
+# CHANGE 1600 x 900 TO YOUR SCREEN SIZE :)
+#ffmpeg -f x11grab -s 1600x900 -i :0.0 -f alsa -i default $NAME.$FILETYPE

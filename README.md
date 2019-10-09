@@ -3,15 +3,19 @@
 > "The real power of the computer is its ability to do the work for you. To get it to do that, we use the power of the shell to automate things. We write shell scripts." - [random site](http://linuxcommand.org/lc3_writing_shell_scripts.php)
 
 ## Setting up
-As these are shell scripts, they're meant to be run in the shell (specifically a Unix shell). I'm using Bash on a Mac, so a few things may work differently for you (I'll remark on those differences if I can catch them). I don't think I have any 'bashims" in my scripts (i.e. features not defined by POSIX, which are specific to the Bash shell), so at least that shouldn't be an issue. 
+As these are shell scripts, they're meant to be run in the shell (specifically a Unix shell). I'm using Bash on a Mac, so a few things may work differently for you (I'll remark on those differences if I can catch them). I don't think I have any 'bashims" in my scripts (i.e. features not defined by POSIX, which are specific to the Bash shell), so at least that shouldn't be an issue. *Update: I'm also using these on Arch Linux now, so they should work for you wherever you may be.*
 
-To start, I suggest creating a directory titled *.scripts* in your home folder (~ on Mac), noteably including the '.' prefix so to not visually clutter up your working space (I've learned from my mistakes). This is where you'll be keeping all of the shell scripts you write/save. 
+To start, I suggest creating a directory titled *.scripts* in your home folder, noteably including the '.' prefix so to not visually clutter up your working space (I've learned from my mistakes). This is where you'll be keeping all of the shell scripts you write/save. 
 
-Next, you'll need to add this directory to your PATH. Essentially this gives you the ability to refer to any files within the directory simply by their name, even when you're working in a different directory (e.g. writing *example* vs something like **~/.scripts/** *example*). To do this, edit your **.bash_profile** or **.profile**, which are located in your home directory, and insert this line:   `export PATH=~/.scripts`. *Note: If you already have something similar, you can simply add* `:~/.scripts` *at the end of the line.*
+Next, you'll need to add this directory to your PATH. Essentially this gives you the ability to refer to any files within the directory simply by their name, even when you're working in a different directory (e.g. writing `example` vs something like `~/.scripts/ example`). To do this, edit your **.bash_profile** or **.profile**, which are located in your home directory, and insert this line:   `export PATH=~/.scripts`. *Note: If you already have something similar, you can simply add* `:~/.scripts` *at the end of the line.*
 
-The last step (once you have the scripts in your directory, of course), is to execute the command `chmod +x *example`for each file, thus making them executable. And that should be it!
+The last step (once you have the scripts in the proper directory, of course), is to execute the command `chmod +x *example`for each file, thus making them executable. And that should be it!
 
-## Documentation
+*** 
+
+# Documentation
+
+## Miscellaneous
 
 ### hmm
 <pre> hmm </pre>
@@ -55,6 +59,25 @@ newjava hello.java</pre>
 
 * This one is just like `mp3`, but with the added functionality of cropping a desired section of a YouTube video. The script would probably be better if it could be integrated into `mp3` and called like this: `mp3 --crop start-time end-time <url>`, if I have enough time and competency I'll implement that (or you can help me!).
 
+### wiki
+<pre> wiki     #Presents you with 10 random wikipedia articles to choose from</pre>
+* *(requires: [Python](https://www.python.org/))*
+
+* This script is actually written in Python, but since you can also do `chmod +x` on Python scripts (and even drop the .py), I figured it was still relavant to include here. To use, simple call `wiki` and then enter the index of the article you want to read (or -1 for 10 new articles) -- it'll be opened in your default web browser. The articles are fetched from [this Wikipedia API](https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&rnlimit=10&format=json).
+* (*Compatability note: this script uses the `open` command to open the article in your default browser. If you're not on MacOS you can change that to `xdg-open` or to the name of your desired browser*)
+
+![Screenshot](images/wikis.png)
+
+### intro
+<pre>intro     #Does colorful stuffs</pre>
+* *(requires: [cowsay](https://en.wikipedia.org/wiki/Cowsay) and [lolcat](https://github.com/busyloop/lolcat))*
+
+* This one's just for fun; it prints out some colorful things as well as a random ASCII art character using `cowsay`.
+
+![Screenshot](images/welcome.png)
+
+## Video-Related Scripts
+
 ### record
 <pre>record                     #yields OUT.mp4
 record --mov               #yields OUT.mov
@@ -66,7 +89,8 @@ record --mov name          #yields name.mov (order doesn't matter)
 * Another indispensible tool in anyone's toolkit -- `ffmpeg`. If you've ever tried to record your screen on MacOS, then you've probably experieced the perils of QuickTime Player and *.mov*. Though I appreciate Apple providing a native screenrecorder, QuickTime is bulky, only works with files in *.mov* format (which happen to be huge and don't work well with YouTube), and is relatively featureless. Also, c'mon, having that QuickTime icon in your Dock while recording makes you look like an amateur! Lol. 
 
 * With `record`, you can call the command whenever you're ready to start, and enter *q* or *^C* to finish recording. The resulting file will be titled *OUT.mp4*, or something similar if you provided some arguments. If you've accidentally messed up the video format, you can convert from *.mov* to *.mp4* (or vice versa) when finished by invoking this command: `ffmpeg -i input.mov output.mp4`.
-* (*Compatability note: the arguments within this script strongly depend on your OS and even your specific setup -- make sure to visit [this](https://trac.ffmpeg.org/wiki/Capture/Desktop) site for info on how to properly configure for your system.*)
+* (*Compatability note: the arguments within this script strongly depend on your OS and even your specific setup -- make sure to visit [this](https://trac.ffmpeg.org/wiki/Capture/Desktop) site for info on how to properly configure for your system. I also provided a commented command that would work on Linux.*)
+* *Note 2: Check the script for an equivalent command that works on Linux (it's commented out)*
 
 ### concatv
 <pre>concatv                                   #concatenates all .mp4 files in directory
@@ -88,19 +112,22 @@ concatv vid1.mp4 vid2.mp4 vid3.mp4        #concatenates .mp4 files listed as arg
 
 * If your audio is either too quiet or too loud, you can adjust that with this script. Again, if you're unsure of exactly how much to raise/decrease the volume by, incrementally call this script with small changes until satisfied.
 
-### wiki
-<pre> wiki     #Presents you with 10 random wikipedia articles to choose from</pre>
-* *(requires: [Python](https://www.python.org/))*
+### screenshot
+<pre>screenshot       #Saves screenshot in file named output.jpg</pre>
+* *(requires: [ffmpeg](https://github.com/FFmpeg/FFmpeg))*
 
-* This script is actually written in Python, but since you can also do `chmod +x` on Python scripts (and even drop the .py), I figured it was still relavant to include here. To use, simple call `wiki` and then enter the index of the article you want to read (or -1 for 10 new articles) -- it'll be opened in your default web browser. The articles are fetched from [this Wikipedia API](https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&rnlimit=10&format=json).
-* (*Compatability note: this script uses the `open` command to open the article in your default browser. If you're not on MacOS you can change that to `xdg-open` or to the name of your desired browser*)
+* If you don't have any utility to take screenshots for you, this is a cheap alternative (cheap as in lacking in dependencies, not as in $$$, cause this is obviously free lols). *"What if I don't want the terminal window to be in my screenshot?"* you say... well this takes a second to execute so you have just enough time to somehow hide the window (or you can bind the script to execute when you hit a certain key, which gives me a good idea...).
 
-![Screenshot](images/wikis.png)
+* *Note: make sure to change the screen size to the dimensions of your screen*
 
-### intro
-<pre>intro     #Does colorful stuffs</pre>
-* *(requires: [cowsay](https://en.wikipedia.org/wiki/Cowsay) and [lolcat](https://github.com/busyloop/lolcat))*
+## RMarkdown-Related Scripts
 
-* This one's just for fun; it prints out some colorful things as well as a random ASCII art character using `cowsay`.
+### note
 
-![Screenshot](images/welcome.png)
+### render
+
+## Utilities
+
+### backlight
+
+### light

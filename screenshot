@@ -1,2 +1,2 @@
-ffmpeg -f x11grab -framerate 1 -video_size 1600x900 -i :0.0 -vframes 1 output.jpeg
+ffmpeg -f x11grab -framerate 1 -video_size 1600x900 -i :0.0 -vframes 1 output.jpg
 

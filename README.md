@@ -7,7 +7,7 @@ As these are shell scripts, they're meant to be run in the shell (specifically a
 
 To start, I suggest creating a directory titled `.scripts` in your home folder, noteably including the `.` prefix so to not visually clutter up your working space (I've learned from my mistakes). This is where you'll be keeping all of the shell scripts you write/save. 
 
-Next, you'll need to add this directory to your PATH. Essentially this gives you the ability to refer to any files within the directory simply by their name, even when you're working in a different directory (e.g. writing `example` vs something like `~/.scripts/example`). To do this, edit your `.bash_profile` or `.profile`, which are located in your home directory, and insert this line:   `export PATH=~/.scripts`. *Note: If you already have something similar, you can simply add* `:~/.scripts` *at the end of the line.*
+Next, you'll need to add this directory to your PATH. Essentially this gives you the ability to refer to any files within the directory simply by their name, even when you're working in a different directory (e.g. writing `example` vs something like `~/.scripts/example`). To do this, edit your `.bash_profile` or `.profile`, which are located in your home directory, and insert this line:   `export PATH=$PATH:~/.scripts`. *Note: If you already have something similar, you can simply add* `:~/.scripts` *at the end of the line.*
 
 The last step (once you have the scripts in the proper directory, of course), is to execute the command `chmod +x *example`for each file, thus making them executable. And that should be it!
 

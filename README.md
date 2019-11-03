@@ -62,7 +62,7 @@ newjava hello.java</pre>
 <pre> wiki     #Presents you with 10 random wikipedia articles to choose from</pre>
 * *(requires: [Python](https://www.python.org/))*
 
-* This script is actually written in Python, but since you can also do `chmod +x` on Python scripts (and even drop the .py), I figured it was still relavant to include here. To use, simple call `wiki` and then enter the index of the article you want to read (or -1 for 10 new articles) -- it'll be opened in your default web browser. The articles are fetched from [this Wikipedia API](https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&rnlimit=10&format=json).
+* This script is actually written in Python, but since you can also do `chmod +x` on Python scripts (and even drop the .py), I figured it was still relavant to include here. To use, simply call `wiki` and then enter the index of the article you want to read (or -1 for 10 new articles) -- it'll be opened in your default web browser. The articles are fetched from [this Wikipedia API](https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&rnlimit=10&format=json).
 * (*Compatability note: this script uses the `open` command to open the article in your default browser. If you're not on MacOS you can change that to `xdg-open` or to the name of your desired browser*)
 
 ![Screenshot](images/wikis.png)
@@ -126,10 +126,10 @@ concatv vid1.mp4 vid2.mp4 vid3.mp4        #concatenates .mp4 files listed as arg
 <pre>render mynote.rmd        #Compiles .rmd file to specified (in meta-data) output file format</pre>
 
 * Usually when people use RMarkdown they write it and compile it in RStudio. If you want to use something else, this is the command you can use to compile your note.
-* *Note: If you want a keyboard shortcut for this in **vim**, I got u. Just add the following to your `.vimrc` file, or wherever you keep your config:
+* *Note*: If you want a keyboard shortcut for this in **vim**, I got u. Just add the following to your `.vimrc` file, or wherever you keep your config:
 `autocmd FileType rmd map ,2 :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>`
 
-* Now you can simply press `,2` and the .rmd file will compile (don't forget to save your changes beforehand).
+    - Now you can simply press `,2` and the .rmd file will compile (don't forget to save your changes beforehand).
 
 ## Utilities
 
@@ -143,7 +143,7 @@ backlight up      #Raises the backlight by 80 (out of 852, so that's roughly 10 
 backlight down    #Lowers the backlight by 80
 backlight on      #Maximizes brightness to 100%
 backlight off     #Turns off screen completely (not recommended, as you'll have to turn it back on by typing without seeing anything lol)
-backlight dim     # Lowers backlight to the dimmest possible brightness (but still visible).
+backlight dim     #Lowers backlight to the dimmest possible brightness (but still visible).
 </pre>
 
 * For some reason I couldn't bind my function keys to actually change my brightness. Maybe you're in the same situation. This is a workaround.

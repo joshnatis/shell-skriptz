@@ -26,4 +26,8 @@ echo >> $filename
 echo $'\t'"return 0;" >> $filename
 echo "}" >> $filename
 
-open $filename
+if [ "$2" = "-v" ]; then
+	vim $filename
+else
+	open $filename
+fi

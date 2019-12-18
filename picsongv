@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" = "-h" ] || [ $# -lt 2 ]; then
+	echo "picsongv image.png audio.mp3 [OUTPUT.mp4]"
+	exit 0
+fi
+
+if [ -z "$3" ]; then
+	OUTPUT="OUT.mp4"
+else
+	OUTPUT="$3"
+fi
+
+ffmpeg -loop 1 -i "$1" -i "$2" -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest OUTPUT
+

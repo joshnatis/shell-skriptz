@@ -1,3 +1,0 @@
-#!/bin/bash
-
-youtube-dl -x --postprocessor-args "-ss $1 -to $2" "$3" --audio-format mp3 --output "%(title)s.%(ext)s" $3

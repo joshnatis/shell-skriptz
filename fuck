@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vim -M ~/scripts/"$1" || echo "Fuckkkkk!"

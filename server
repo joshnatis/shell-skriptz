@@ -15,6 +15,5 @@ if [ ! -f "index.html" ]; then
 	echo "$DEFAULT_PAGE_HTML" > index.html
 fi
 
-
-python3 -m http.server 8080
-open "https://localhost:8080"
+echo "Navigate to https://localhost:8080 on your browser :)"
+python3 -m http.server 8080 

@@ -37,7 +37,9 @@ newjava hello.java</pre>
 * Short and sweet -- this script compiles a *.cpp* file with `g++` (creating *a.out*) and runs the resulting out file.
 
 ### mp3
-<pre>mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ</pre>
+<pre>mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ
+mp3 --crop 1:00 2:08 https://youtu.be/DljBMflGdek #only downloads a specified portion of the audio
+</pre>
 * *(requires: [youtube-dl](https://github.com/ytdl-org/youtube-dl))*
 
 * I cannot recommend `youtube-dl` enough, both as an alternative to suspicious YouTube2MP3 websites, and to streaming services such as Spotify. Calling `mp3 <url>` downloads the requested file to your current directory. If you're using iTunes or a similar music player, you have to first open the file in the player manually in order for it to show up in your music library. For me, this process often looks like this: 
@@ -47,16 +49,34 @@ newjava hello.java</pre>
  4. Next time you play a song you moved, iTunes may or may not give you an error message claiming it cannot find the file (since you moved it to a new directory). Simply follow the prompts it gives you, locate the erroneous file in Finder, and the rest will be found automatically. This is, of course, a horrible solution, but the important thing is that you have the file readily accessible on your computer.
  5. Optionally, you can add points 2. and 3. to the script, but I prefer not to have iTunes open every time I download a file.
  
- *Suggestion: If you only need a snippit of some audio, rather than the entire file, download [Audio Hijack](https://rogueamoeba.com/audiohijack/), a great program with an indefinite free trial that allows you to record the audio directly from your computer.*
+ *Suggestion: If you only need a snippet of some audio, rather than the entire file, download [Audio Hijack](https://rogueamoeba.com/audiohijack/), a great program with an indefinite free trial that allows you to record the audio directly from your computer.*
  
  *Suggestion #2: Play your music in style with my command-line music player, [teapot](https://github.com/joshnatis/teapot) :P*
- 
- ### mp3crop
- <pre>mp3crop 1:00 2:08 https://youtu.be/DljBMflGdek</pre>
 
-* *(requires: [youtube-dl](https://github.com/ytdl-org/youtube-dl))*
+### fuck
+<pre>fuck myscript </pre>
+* Do you have a million shell scripts with stupid names? Do you find yourself forgetting which one is which and what they're supposed to do? Voila, I present to you `fuck`, which simply opens your script of choice in read-only mode, allowing you to
+inspect its contents and hopefully remember its purpose. If only I could add man pages for my scripts...
+* *Note: change the path in the script to the path of your shell scripts directory*
 
-* This one is just like `mp3`, but with the added functionality of cropping a desired section of a YouTube video. The script would probably be better if it could be integrated into `mp3` and called like this: `mp3 --crop start-time end-time <url>`, if I have enough time and competency I'll implement that (or you can help me!).
+### fishme
+<pre>fishme "endl" #prints out all instances of "endl" in files in the current directory</pre>
+* The rich man's ctrl-f -- you'll now be able to search for instances of a string in files in your directory. This was inspired by the workflow of [Andreas Kling](https://www.youtube.com/channel/UC3ts8coMP645hZw9JSD3pqQ) in his SerenityOS videos.
+* Why is it called `fishme`? Hey Siri, fish me an explanation for this question.
+
+### gack
+<pre>gack notes.ms  # generates a notes.pdf</pre>
+* This one's for all you `groff`ers out there. If you write a document with `groff` (ms macros), calling this command on it will generate a PDF file with the same name.
+* *(requires: groff, cupsfilter)*
+  * Both of these are likely to be installed on your computer already, especially if you're on a Mac. That's why I'm using this instead of LaTeX!
+* *Note: for more information + a general workflow + vim stuffs, see my [notes repo](https://github.com/joshnatis/notes)*
+
+### server
+<pre>server ~/Documents/cooldirectory32</pre>
+* *(requires: [Python](https://www.python.org/))*
+* Starts up a server on localhost, port 8080, with the files in the specified directory. Once you run it, navigate to `https://localhost:8080` on your browser :)
+  * If there's no `index.html` already in the directory, the script generates a default one before starting up the server.
+* This is probably pretty useless on its own, but my goal is to use this as a building block for command line utilities that start up a GUI on your localhost upon launch. This was inspired by geohot's [qira](https://qira.me/) debugger.
 
 ### wiki
 <pre> wiki     #Presents you with 10 random wikipedia articles to choose from</pre>

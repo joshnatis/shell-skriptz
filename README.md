@@ -54,7 +54,7 @@ mp3 --crop 1:00 2:08 https://youtu.be/DljBMflGdek #only downloads a specified po
  *Suggestion #2: Play your music in style with my command-line music player, [teapot](https://github.com/joshnatis/teapot) :P*
 
 ### fuck
-<pre>fuck myscript </pre>
+<pre>fuck mylife </pre>
 * Do you have a million shell scripts with stupid names? Do you find yourself forgetting which one is which and what they're supposed to do? Voila, I present to you `fuck`, which simply opens your script of choice in read-only mode, allowing you to
 inspect its contents and hopefully remember its purpose. If only I could add man pages for my scripts...
 * *Note: change the path in the script to the path of your shell scripts directory*

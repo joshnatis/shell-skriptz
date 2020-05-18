@@ -47,11 +47,15 @@ def get_lyrics(search_term):
 	return (artist, title, lyrics)
 
 def main():
-	if len(sys.argv) != 2:
-		print("Usage:", sys.argv[0], "\"<song title>\"")
+	if len(sys.argv) < 2:
+		print("Usage:", sys.argv[0], "<song title>")
 		exit(1)
 
-	artist, title, lyrics = get_lyrics(sys.argv[1])
+	song_title = ""
+	for i in range(1, len(sys.argv)):
+		song_title += sys.argv[i] + " "
+
+	artist, title, lyrics = get_lyrics(song_title)
 	print(artist, "-", title, "\n", lyrics)
 
 main()

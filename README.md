@@ -103,6 +103,12 @@ inspect its contents and hopefully remember its purpose. If only I could add man
 * I got tired of having to search for sites with virtual Russian keyboards every time I wanted to transliterate *babushka* into *бабушка*. This script just takes English letters and turns them into their Russian counterparts (including some English diphthongs which exist as a single letter in Russian).
 * This isn't "correct" in any measurable way, and it's tuned towards how I tend to spell out words so you might want to change stuff around.
 
+### lyrics
+<pre>./lyrics linkin park - faint</pre>
+* *(requires: [Python](https://www.python.org/), and the [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) and [requests](https://requests.readthedocs.io/en/master/) modules )*
+  
+* Prints out the lyrics for a requested song (if you wanna read them normally I'd recommend piping the output into `less`). Don't steal my API key.
+
 ### intro
 <pre>intro     #Does colorful stuffs</pre>
 * *(requires: [cowsay](https://en.wikipedia.org/wiki/Cowsay) and [lolcat](https://github.com/busyloop/lolcat))*

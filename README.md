@@ -64,6 +64,15 @@ inspect its contents and hopefully remember its purpose. If only I could add man
 * The rich man's ctrl-f -- you'll now be able to search for instances of a string in files in your directory. This was inspired by the workflow of [Andreas Kling](https://www.youtube.com/channel/UC3ts8coMP645hZw9JSD3pqQ) in his SerenityOS videos.
 * Why is it called `fishme`? Hey Siri, fish me an explanation for this question.
 
+### nuke
+<pre>nuke   #recursively removes all instances of .DS_Store in a directory</pre>
+* Fuck .DS_Store, all my homies hate .DS_Store
+
+### repl
+<pre>repl c++   #starts a read-eval-print loop for c++ (also available: c, c++, java)</pre>
+* Sometimes you just want to test out a certain facet of a language. A read-eval-print loop lets you do that without the hassle of boilerplate code and without having to repeatedly recompile.
+* The script is really just compiling your program and displaying the result every time you press enter, but the way it's set up makes it function like a repl environment. The compile time is near instantaneous after the first instruction you enter because of cache, so that's not an issue.
+
 ### gack
 <pre>gack notes.ms  # generates a notes.pdf</pre>
 * This one's for all you `groff`ers out there. If you write a document with `groff` (ms macros), calling this command on it will generate a PDF file with the same name.
@@ -86,6 +95,13 @@ inspect its contents and hopefully remember its purpose. If only I could add man
 * (*Compatability note: this script uses the `open` command to open the article in your default browser. If you're not on MacOS you can change that to `xdg-open` or to the name of your desired browser*)
 
 ![Screenshot](images/wikis.png)
+
+### russian
+<pre>russian privet droog, kak dela?    #outputs russian transliteration: привет друг, как дела?</pre>
+* *(requires: [Python](https://www.python.org/))*
+
+* I got tired of having to search for sites with virtual Russian keyboards every time I wanted to transliterate *babushka* into *бабушка*. This script just takes English letters and turns them into their Russian counterparts (including some English diphthongs which exist as a single letter in Russian).
+* This isn't "correct" in any measurable way, and it's tuned towards how I tend to spell out words so you might want to change stuff around.
 
 ### intro
 <pre>intro     #Does colorful stuffs</pre>

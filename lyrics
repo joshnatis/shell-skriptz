@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+
+import sys
+import requests
+import urllib
+import json
+from bs4 import BeautifulSoup
+
+#if you steal this please use responsibly :P
+API_KEY = "B0ji-zXRGhBl2VQezJGpDVXJAarPyAelHOpAVHw0a4NBthn7XU-wJiCf-lvBwLON"
+
+
+def get_lyrics(search_term):	
+
+	#get JSON with relevant data (artist, title, lyrics url) from API
+
+	API_URL = "https://api.genius.com/search?q="
+	query = API_URL + urllib.request.quote(search_term)
+
+	request = urllib.request.Request(query)
+	request.add_header("Authorization", "Bearer " + API_KEY)
+	request.add_header("User-Agent", "")
+
+	response = urllib.request.urlopen(request, timeout=3)
+	json_obj = json.loads(response.read().decode('utf-8'))
+
+	#extract relevant data from JSON
+
+	try:
+		search_result = json_obj['response']['hits'][0]
+	except IndexError:
+		print("Oops! Song not found :-(")
+		exit(1)
+
+	artist = search_result['result']['primary_artist']['name']
+	title = search_result['result']['title']
+	lyrics_url = search_result['result']['url']
+
+	#parse lyrics url with BeautifulSoup
+
+	page = requests.get(lyrics_url)
+	html = BeautifulSoup(page.text, "html.parser")
+	lyrics = html.find("div", class_="lyrics").get_text()
+	
+	#return relevant data
+
+	return (artist, title, lyrics)
+
+def main():
+	if len(sys.argv) != 2:
+		print("Usage:", sys.argv[0], "\"<song title>\"")
+		exit(1)
+
+	artist, title, lyrics = get_lyrics(sys.argv[1])
+	print(artist, "-", title, "\n", lyrics)
+
+main()

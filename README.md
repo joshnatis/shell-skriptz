@@ -117,6 +117,13 @@ inspect its contents and hopefully remember its purpose. If only I could add man
 
 ![Screenshot](images/welcome.png)
 
+### copy
+<pre>copy hello world im cool #copies "hello world im cool" to your clipboard
+cat myfile.txt | copy   #copies contents of myfile.txt to your clipboard</pre>
+* *(requires: [Python](https://www.python.org/))*
+
+* This might only work on Mac, be ware.
+
 ## Video-Related Scripts
 
 ### record

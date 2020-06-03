@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+
+data = ""
+if len(sys.argv) == 1:
+	for line in sys.stdin:
+		data += line
+else:
+	for i in range(1, len(sys.argv)):
+        	data += sys.argv[i] + " "
+
+subprocess.run("pbcopy", universal_newlines=True, input=data)
